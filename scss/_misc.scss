@@ -1,0 +1,8 @@
+// Misc styles goes here
+
+.site-wrapper{
+	min-height: $min-height-wrapper-desktop; // To have body spacing if no content
+	@include bp(tablet-sm){
+		min-height: $min-height-wrapper-mobile;	
+	}
+}

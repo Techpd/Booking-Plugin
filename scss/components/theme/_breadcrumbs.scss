@@ -1,0 +1,23 @@
+// Breadcrumbs
+
+%styles{
+	@include font-rem(18px,24px);
+	@extend .font-weight-regular;
+	color: color(text);
+	text-decoration: none;
+}
+.breadcrumbs{
+	@extend %styles;
+	a{
+		@extend %styles;
+	}
+	.theme-arrow{
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		margin: 0 5px;
+	}
+}

@@ -1,0 +1,224 @@
+
+// Default page styles
+.default-content{
+	counter-reset: ol-list;
+	p,a{
+		@include font-rem(18px,24px);
+		@extend .font-weight-regular;
+		@include bp(tablet-sm){
+			@include font-rem(16px,21px);
+		}
+	}
+	a{
+		color: color(primary,darker);
+		text-decoration: none;
+		@include bp(tablet-md){
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+	p{
+		&:not(:last-of-type){
+			margin-bottom: 35px;
+			@include bp(tablet-sm){
+				margin-bottom: 28px;	
+			}
+		}
+		&:last-of-type{
+			margin-bottom: 36px;
+		}
+	}
+	// Blockquote size for resuing inside child
+	%blockquote{
+		@include font-rem(24px,33px);
+		font-style: italic;
+		@include bp(tablet-sm){
+			@include font-rem(20px,28px);		
+		}
+	}
+	blockquote{
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 67px;
+		@extend %blockquote;
+
+		// Custom values
+		--quoteWidth : 30px;
+		--quoteMargin : 24px;
+
+		a{
+			@extend %blockquote;
+		}
+		@include bp(tablet-sm){
+			margin-bottom: 51px;	
+			--quoteMargin : 14px;
+			--quoteWidth: 17px;
+		}
+		&:before{
+			content: '';
+			// background-image: $quote;
+			margin-right: var(--quoteMargin);
+			display: inline-block;
+			width: var(--quoteWidth);
+			height: 18px;
+			flex: 0 0 var(--quoteWidth);
+			margin-top: 5px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			@include bp(tablet-sm){
+				height: 10px;
+			}
+		}
+
+		%fullsectionSpace{
+			flex: 1 0 100%;
+			margin-top: 10px;
+			padding-left: calc(var(--quoteWidth) + var(--quoteMargin));
+			@include bp(tablet-sm){
+				margin-top: 5px;	
+			}
+		}
+
+		p{
+			margin-bottom: 0;
+			flex: 1;
+			@extend %blockquote;
+			&:last-of-type,&:not(:last-of-type){
+				margin-bottom: 0;
+			}
+			& + p{
+				@extend %fullsectionSpace;
+			}
+			cite{
+				padding-left: 0;
+			}
+		}
+		cite{
+			@extend %fullsectionSpace;
+			@include font-rem(18px);
+			@include bp(tablet-sm){
+				@include font-rem(16px);
+			}
+		}
+	}
+
+	ul,ol{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		@include font-rem(18px,28px);
+		@extend .font-weight-regular;
+		margin-bottom: 71px;
+		@include bp(tablet-sm){
+			@include font-rem(16px,27px);
+			margin-bottom: 50px;
+		}
+		li{
+			display: flex;
+			&:before{
+				content: '•';
+				display: inline-block;
+				color: color(primary,base);
+				position: relative;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	ol{
+		li{
+			&:before{
+				counter-increment: ol-list;
+				content: counter(ol-list)'.';
+				margin-right: 0;
+				color: color(text);
+				flex: 0 0 16px;
+				@include bp(tablet-sm){
+					flex: 0 0 15px;	
+				}
+			}
+		}
+	}
+	.blocks-gallery-grid{
+		figure{
+			margin-bottom: 0 !important;
+		}
+		li{
+			&:before{
+				display: none;
+			}
+		}
+		figcaption{
+			border: 0;
+		}
+	}
+	%figurecaption{
+		display: block !important;
+		margin: 0;
+		padding: 17px 23px 19px;
+		background-color: #F5EADF;
+		border: 1px solid #F5EADF;
+		@include font-rem(16px,20px);
+		color: color(text);
+		@extend .font-weight-light;
+		strong{
+		@extend .font-weight-bold;
+		}
+		@include bp(tablet-sm){
+			@include font-rem(14px,18px);
+			padding: 14px 20px 14px;
+			border-radius: 0 0 8px 8px;
+		}
+	}
+	figure{
+		float: none !important;
+		margin: 0 0 30px 0 !important;
+		display: block !important;
+		img{
+			// max-height: 426px;
+			width: 100%;
+			border-radius: 8px !important;
+			@extend .object-cover;
+			@include bp(tablet-sm){
+				max-height: 228px;	
+				border-radius: 8px 8px 0 0 !important;
+			}
+			// @include bp(tablet-strict){
+			// 	max-height: initial;
+			// }
+			// @media (max-width: 991px) and (orientation: landscape){
+			// 	max-height: initial;
+			// }
+		}
+		figcaption{
+			@extend %figurecaption;
+		}
+	}
+
+	.wp-block-image{
+		margin-bottom: 48px;
+		@include bp(tablet-sm){
+			margin-bottom: 45px;	
+		}
+	}
+
+	.wp-block-embed{
+		&__wrapper{
+			display: flex;
+		}
+	}
+
+	iframe{
+		width: 100%;
+		height: 426px;
+		@include bp(tablet-sm){
+			height: 228px;	
+		}
+		@include bp(tablet-strict){
+			height: 380px;
+		}
+	}
+
+}

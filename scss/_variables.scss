@@ -1,0 +1,60 @@
+
+/* ==========================================================================
+  COMMON VARIABLES
+  ========================================================================== */
+
+// Color variable map
+$colors: (
+  // non-nested values
+  background: #F9FBFC,
+  border: #ededed,
+  failure: #eb7267,
+  error: #E3000B,
+  success: #9cee00,
+  white: #fff,
+  black: #000,
+  disabled: #EBEBEB,
+  grey : #d8d8d8,
+  theme_border: #8dcfed,
+  text : #171A1D,
+  heading: #F5F1F5,
+  badge: #c93b17,
+  // nested map inception
+  primary: (
+   base: #EE7600,
+   light: #fad5b2,
+   lighter: #fad5b2,
+  ),
+  secondary: (
+    base: #30ADE5,
+  ),
+);
+
+// Usage
+// .header{
+//   color: color(primary,base); //Nested
+//   color: color(footer);//Direct
+// }
+
+// SPACING
+$mobileSpacing : 30px;
+
+// breakpoints
+$min-breakpoint: 320px;
+$max-breakpoint: $grid-maxWidth;
+
+// TYPOGRAPHY
+//   ==========================================================================
+$htmlFontSize: 16px;
+$baseFontSize: 16px;
+$baseFontFamily: "aktiv-grotesk",sans-serif;
+$font-awesome: 'FontAwesome';
+$baseLineHeight: 1.5;
+$baseTextColor: color(text);
+
+
+// ==========================================================================
+//  MIN HEIGHT FOR CONTAINER
+//  ==========================================================================
+$min-height-wrapper-desktop: 58vh;
+$min-height-wrapper-mobile: 63vh;

@@ -1,0 +1,29 @@
+
+// Mobile spacing
+@include bp(tablet-sm){
+	.container{
+		padding-left: $mobileSpacing;
+		padding-right: $mobileSpacing;
+	}	
+	.row{
+		margin-left: -$mobileSpacing;
+		margin-right: -$mobileSpacing;
+	}
+	// BS grid columns
+	%grid-column {
+		padding-right: $mobileSpacing;
+		padding-left: $mobileSpacing;
+	}
+}
+
+.container{
+	@media (max-width: 1488px){
+		max-width: 100%;
+	}
+}
+
+.page-components{
+	// For faster page rendering and performance - Only supported in chrome
+	// content-visibility: auto;
+	// contain-intrinsic-size: 5000px;
+}
